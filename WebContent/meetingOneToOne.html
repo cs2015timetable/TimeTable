@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>
+      University College Cork (UCC)
+    </title>
+    <link rel="stylesheet" href="css/studentStyle.css" type="text/css" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/meeting.css" type="text/css" />
+    <meta charset="UTF-8" />
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.min.js">
+	</script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.min.js">
+	</script>
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <!--Javascript for date picker feature-->
+	<script type="text/javascript">
+
+                $(document).ready(function () {
+                        $("#datepicker").datepicker();
+                });
+    
+    </script>
+	<!--Javascript to show message when request has been sent-->
+    <script type="text/javascript"> 
+			function show_alert() 
+		{ 
+		alert("Your meeting request has been sent"); 
+	} 
+	</script> 
+	
+  </head>
+	<body>
+		<div id = "logout">
+			<a href="studentHome.html"><img src="images/homeIcon.png" class="logo" /></a>
+		</div>
+		<div id="content">
+			<img src="images/logo.png" class="logo" />
+		</div>
+	    
+		<div id="form-main">
+			<div id="form-div">
+				<form class="form" id="form1">
+				<div id="meetImg">
+				<img src="images/meetinglecturer.png" class="logo" />
+				</div>
+					<!--option to choose department that the lecturer is in-->
+					<p class="department">
+						<select type="text" class="validate[required,custom[email]] feedback-input" id="department" placeholder="Select a department" >
+						<option value="" selected="selected">
+							Choose department
+						</option>
+						</select>
+					</p>
+					<!--option to choose a lecturer-->
+					<p class="name">
+						<select name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name">
+							<option value="" selected="selected">
+							Choose lecturer
+							</option>
+							<option value="one">
+							John Doe
+							</option>
+							<option value="two">
+							Michael Brown
+							</option>
+							<option value="three">
+							Jim Beam
+							</option>
+						</select>
+					</p>
+					<!--datepicker-->
+					<p class="date">
+						<input type="text" class="validate[required,custom[email]] feedback-input" id="datepicker" placeholder="Choose a Date" />
+					</p>
+					<!--option to choose an available time just hard coded a few of these values-->
+					<p class="time">
+						<select type="text" class="validate[required,custom[email]] feedback-input" id="time" placeholder="Choose Available Time" >
+							<option value="" selected="selected">
+							Request a time
+							</option>
+							<option value="time1">
+							9:30
+							</option>
+							<option value="time2">
+							10:00
+							</option>
+							<option value="time3">
+							10:30
+							</option>
+						</select>
+					</p>
+					<!--insert a comment into the message request-->	
+					<p class="text">
+						<textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment">
+						</textarea>
+					</p>
+					<!--submit button-->
+					<div class="submit">
+						<input type="submit" onclick="show_alert()" value="SEND" id="button-blue" />
+					<div class="ease"></div>
+					</div>
+		  
+				</form>
+			</div>
+	  
+    </div>
+	
+  </body>
+</html>

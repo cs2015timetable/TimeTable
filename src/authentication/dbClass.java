@@ -1,41 +1,52 @@
+package authentication;
+/**
+ *
+ * @author Shiny 
+ */
 import java.sql.*;
-import java.util.ArrayList;
+import java.text.*;
 import java.io.*;
 
-public class DbClass {
+public class dbClass {
 
     private Statement statementObject;
     private Connection connectionObject;
    
+    private String dbserver;
+    private String DSN;
     private String username;
     private String password;
-    private String URL;
-    private boolean open=false;
+    private boolean setup=false;
     
-    public void setup(String dbserver, String DSN,String username,String password)
+    public String setup(String dbserver, String DSN,String username,String password)
         {
+	   this.dbserver=dbserver;
+	   this.DSN=DSN;
 	   this.username=username;
 	   this.password=password;
-        this.URL = "jdbc:mysql://"+dbserver+"/" + DSN;
-        this.open = false;
-    } // DatabaseConnectorNew constructor
-    public void Start(){
-    	try {// Initialize drivers
+        String URL = "jdbc:mysql://"+dbserver+"/" + DSN;
+        
+        try {// Initialiase drivers
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception exceptionObject) {
             writeLogSQL(URL + " caused error " + exceptionObject.getMessage()+" Error dbclass.setup.1. ");
+            return("Failed to load JDBC/ODBC driver. Error dbclass.setup.1 PLEASE report this error");
         }
         try {
             // Establish connection to database
             connectionObject = DriverManager.getConnection(URL, username, password);
-            this.open=true;
+            setup=true;
         } catch (SQLException exceptionObject) {
             writeLogSQL(URL + " caused error " + exceptionObject.getMessage()+" Error dbclass.setup.2");
+            return("Problem with setting up " + URL+" Error dbclass.setup.2 PLEASE report this error");
         }
-    }
- public boolean isOpen()
+
+    return "";
+    } // DatabaseConnectorNew constructor
+
+ public boolean issetup()
     {
-    return open;
+    return setup;
     }
     
  public void Close()
@@ -43,7 +54,6 @@ public class DbClass {
     try {
             // Establish connection to database
             connectionObject.close(); 
-            this.open=false;
         }
         catch (SQLException exceptionObject)
         {
@@ -56,7 +66,6 @@ public class DbClass {
         {
 
         // Setup database connection details
-        Start();
         try {
             // Setup statement object
             statementObject = connectionObject.createStatement();
@@ -69,71 +78,11 @@ public class DbClass {
             System.out.println(SQLinsert+" - Problem is : " + exceptionObject.getMessage());
             writeLogSQL(SQLinsert + " caused error " + exceptionObject.getMessage());
             }
-        finally {
-                try { if (statementObject != null) statementObject.close(); } catch (Exception e) {};
-            }
-        Close();
         } // End Insert
-   
-   public void Delete(String SQLdelete)
-   {
-	   Start();
-   // Setup database connection details
-   try {
-       // Setup statement object
-       statementObject = connectionObject.createStatement();
 
-       // execute SQL commands to insert data
-       statementObject.executeUpdate(SQLdelete);
-       writeLogSQL(SQLdelete +" Executed OK");
-       }
-   catch (SQLException exceptionObject) {
-       System.out.println(SQLdelete+" - Problem is : " + exceptionObject.getMessage());
-       writeLogSQL(SQLdelete + " caused error " + exceptionObject.getMessage());
-       }
-   finally {
-       try { if (statementObject != null) statementObject.close(); } catch (Exception e) {};
-   }
-   Close();
-   } // End Insert
-   
-   public ArrayList<String[]> selectDB(String query)
-   {
-	   Start();
-       ArrayList<String[]> results = new ArrayList<String[]>();
-       // Send an SQL query to a database and return the *single column* result in an array of strings
-       try {// Make connection to database
-           statementObject = connectionObject.createStatement();
-           ResultSet statementResult = statementObject.executeQuery(query); //Should connection be left open?
-
-           ResultSetMetaData rsmd = statementResult.getMetaData();
-           int nrOfColumns = rsmd.getColumnCount();
-			statementResult.beforeFirst();
-           while (statementResult.next()) // While there are rows to process
-           {
-        	   String[] row = new String[nrOfColumns];
-               for(int count=0;count<nrOfColumns;count++){
-					row[count] = statementResult.getString(count+1);
-				}
-				results.add(row);
-           }
-  
-   }catch (Exception e) {
-           System.err.println("Select problems with SQL " + query);
-           System.err.println("Select problem is " + e.getMessage());
-           writeLogSQL(query + " caused error " + e.getMessage());
-           }
-       finally {
-           try { if (statementObject != null) statementObject.close(); } catch (Exception e) {};
-       }
-       Close();
-       writeLogSQL(query + "worked ");
-       return results;
-   }
    public String[] SelectRow(String SQLquery)
     {
         String Result[];
-        Start();
         // Send an SQL query to a database and return the *single column* result in an array of strings
         try {// Make connection to database
             statementObject = connectionObject.createStatement();
@@ -164,10 +113,6 @@ public class DbClass {
             Result = new String[0]; //Need to setup result array to avoid initialisation error
             writeLogSQL(SQLquery + " caused error " + e.getMessage());
             }
-        finally {
-            try { if (statementObject != null) statementObject.close(); } catch (Exception e) {};
-        }
-        Close();
         writeLogSQL(SQLquery + "worked ");
         return Result;
     } // End SelectRow
@@ -175,7 +120,6 @@ public class DbClass {
     public String[] SelectColumn(String SQLquery)
     {
         String Result[];
-        Start();
         // Send an SQL query to a database and return the *single column* result in an array of strings
         try {// Make connection to database
             statementObject = connectionObject.createStatement(); //Should connection be left open?
@@ -208,10 +152,6 @@ public class DbClass {
             Result = new String[0]; //Need to setup result array to avoid initialisation error
             writeLogSQL(SQLquery + " caused error " + e.getMessage());
             }
-        finally {
-            try { if (statementObject != null) statementObject.close(); } catch (Exception e) {};
-        }
-        Close();
         writeLogSQL(SQLquery + "worked ");
         return Result;
     } // End Select
@@ -226,5 +166,4 @@ public void writeLogSQL(String message) {
         } catch (IOException ieo) {
         }
     } // End writeLog
-
-} //End dblib
+}

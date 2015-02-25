@@ -1,3 +1,4 @@
+package database;
 
 public class DB {
 	private boolean connected;

@@ -1,12 +1,10 @@
-import java.io.FileInputStream;
-import java.io.Serializable;
-import java.io.BufferedReader;
-public class AdminUser extends User{
-	private AdminApplication app;
+package database;
+public class AdminUser extends ArrangeMeeting{
+	private Application app;
 	public AdminUser(){
 	}
 	public void setup(){
-		app = new AdminApplication();
+		app = new Application();
 		app.setup();
 	}
 	public void addCourse(String courseId,String departmentId, String courseTitle, 
