@@ -43,12 +43,11 @@ public class validate {
             /**
              * A boolean - true if the user is genuine and false if the users credentials are incorrect.
              */
-            boolean validUser = app.checkDatabase(username, password);
-            if(validUser == true){
-                return "GenuineUser";
-            } else{
-                System.out.println("Test Photo");
-                return "http://localhost:8080/Login/index.jsp";              
+            String[] user = app.getNames(username, password);
+            if(user==null||user.length!=1){
+                return "";   
+            } else{           
+                return user[0];
             }
         }     
         
@@ -61,4 +60,3 @@ public class validate {
             return MD5.getMD5(userPassword);
         }
 }
-

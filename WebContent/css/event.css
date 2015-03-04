@@ -1,0 +1,40 @@
+h1{
+text-align: center;
+}
+#event{
+padding-bottom: 40px;
+}
+#event img {
+
+    display: block;
+	margin-left: auto;
+	margin-right:38%;
+	width: 30%;
+}
+a{
+color: blue;
+
+}
+
+#save  {
+	margin-top:10px;
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+	width: 10%;
+}
+#logout {
+    position: absolute;
+    left: 10px;
+	top:10px;
+	
+	
+	
+}
+#logout img{
+
+width: 12%;
+}
+
+	
+	

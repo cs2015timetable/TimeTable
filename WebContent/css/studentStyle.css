@@ -2,6 +2,9 @@
 #content {
     position: right;
 }
+div p{
+	font-size:2em;
+}
 #help img{
 	display:block;
 	margin-left: 16%;

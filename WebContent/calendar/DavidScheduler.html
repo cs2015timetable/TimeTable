@@ -1,0 +1,127 @@
+<!doctype html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	<title>Timetable</title>
+	<link rel="stylesheet" href="../css/studentStyle.css"/>
+	
+	<script src="codebase/dhtmlxscheduler.js" type="text/javascript"></script>
+   <link rel="stylesheet" href="codebase/dhtmlxscheduler.css" type="text/css">
+
+	
+	<link rel="stylesheet" href="../css/event.css"/>
+</head>
+
+<style type="text/css" media="screen">
+	html, body{
+		margin:20px;
+		padding:20px;
+		height:90%;
+		overflow:hidden;
+	}	
+	
+        
+</style>
+
+
+
+	<script type="text/javascript" charset="utf-8">
+		function init() {
+		
+		<!-- Davids -->
+		//scheduler.load("data/connector.php");
+		//myGrid = new dhtmlXGridObject("someContainer");// initializes grid
+
+		//myGrid.load("my_connector.php");
+		//myDP = new dataProcessor("myconnector.php");// initializes dhtmlxDataProcessor
+		//myDP.init(myGrid);
+		<!-- -->
+		
+		
+			scheduler.config.multi_day = true;
+			var pizza_size = [
+				{ key: 1, label: 'Small' },
+				{ key: 2, label: 'Medium' },
+				{ key: 3, label: 'Large' }
+			];
+
+			scheduler.locale.labels.section_text = 'Text';
+			scheduler.locale.labels.section_checkbox = 'Checkbox';
+			scheduler.locale.labels.section_radiobutton = 'Radiobutton';
+			scheduler.locale.labels.section_select = 'Select';
+			scheduler.locale.labels.section_template = 'Template';
+
+			
+			
+		<!--This is making the time range limited from 9 to 5-->	
+		scheduler.config.limit_time_select = true;
+		scheduler.config.first_hour =9;
+		scheduler.config.last_hour =18;
+		
+		<!--example of adding an event-->	
+		scheduler.init('scheduler_here',new Date(2015,1,17),"week");
+		scheduler.addEvent({
+		start_date:new Date(2015,1,17,11,30),
+		end_date:new Date(2015,1,17,13,30),
+		text:"This is an example event"
+		});
+		
+		<!------------ Loading data David -------------->
+		
+		var events = [
+		{id:1, text:"Meeting",   start_date:"02/26/2015 14:00",end_date:"02/26/2015 17:00"},
+		{id:2, text:"Conference",start_date:"02/27/2015 12:00",end_date:"02/27/2015 19:00"},
+		{id:3, text:"Interview", start_date:"02/24/2015 09:00",end_date:"02/24/2015 10:00"}
+		];
+		
+		scheduler.parse(events, "json");
+		
+		var eventsDB = <?php
+			
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "events";
+		// Create connection
+		$sql = "SELECT * FROM events";
+		
+		
+		
+		?>
+		
+		scheduler.parse(eventsDB, "json");
+		<!---------End Data ------------------------->
+		
+		scheduler.config.multi_day = true;
+		scheduler.config.mark_now = true;
+		scheduler.config.xml_date="%Y-%m-%d %H:%i";
+		scheduler.init('scheduler_here',new Date(),"week");
+		scheduler.load("./data/events.xml");
+		}
+		<!--if this is set to true it makes it uneditable but also makes everything uneditable-->
+		scheduler.config.readonly = false;
+	</script>
+
+
+<body onload="init();">
+	
+	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:90%;'>
+	<div class="dhx_cal_navline">
+		<div class="dhx_cal_prev_button">&nbsp;</div>
+		<div class="dhx_cal_next_button">&nbsp;</div>
+		<div class="dhx_cal_today_button"></div>
+		<div class="dhx_cal_date"></div>
+		<div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+		<div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+		<div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+	</div>
+	<div class="dhx_cal_header">
+	</div>
+	<div class="dhx_cal_data">
+	</div>
+</div >
+<div>
+	<!--should'nt need this button. scheduler should take care of it automatically-->
+	<button id="save" type="button">SAVE</button>
+</div>
+</body>
+</html>
