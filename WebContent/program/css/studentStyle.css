@@ -1,0 +1,222 @@
+#group_button{
+  position: relative;
+			display: inline-block;
+			background: #1975FF;
+			color: white;
+			text-align: center;
+			border-radius: 0.5em;
+			text-decoration: none;
+			padding: 0.65em 3em 0.65em 3em;
+			border: 0;
+			cursor: pointer;
+			outline: 0;
+			font-weight: 300;
+			-moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			-webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			-o-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			-ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+}
+#group_button:hover{
+  background-image: -webkit-linear-gradient(top, #ffffff, #f7fcff);
+  background-image: -moz-linear-gradient(top, #ffffff, #f7fcff);
+  background-image: -ms-linear-gradient(top, #ffffff, #f7fcff);
+  background-image: -o-linear-gradient(top, #ffffff, #f7fcff);
+  text-decoration: none;
+  color:black;
+}
+
+#meeting_button{
+  position: relative;
+			display: inline-block;
+			background: green;
+			color: white;
+			text-align: center;
+			border-radius: 0.5em;
+			text-decoration: none;
+			padding: 0.65em 3em 0.65em 3em;
+			border: 0;
+			cursor: pointer;
+			outline: 0;
+			font-weight: 300;
+			-moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			-webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			-o-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			-ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+}
+#meeting_button:hover{
+  background-image: -webkit-linear-gradient(top, #ffffff, #f7fcff);
+  background-image: -moz-linear-gradient(top, #ffffff, #f7fcff);
+  background-image: -ms-linear-gradient(top, #ffffff, #f7fcff);
+  background-image: -o-linear-gradient(top, #ffffff, #f7fcff);
+  text-decoration: none;
+  color:black;
+}
+
+#notes
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#note_form{
+    color:white;
+    padding:20px;
+    background-color: #707070;
+    border: 2px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+#youtube{
+	width:100%;
+}
+#oldNotes{
+	width:100%;
+	margin-top:30px;
+}
+
+#newNotes{
+	width:100%;
+	margin-top:30px;
+}
+@font-face { font-family: Helvetica, Arial, sans-serif;} 
+#content {
+    position: right;
+}
+u{
+color:#2E8B57;
+}
+#exit {
+    position: absolute;
+    left: 10px;
+	top:20px;
+	margin-bottom:20px;
+	border-color:red;	
+}
+#head{
+	padding-top: 20px;
+}	
+#help img{
+	display:block;
+	margin-left: 16%;
+	margin-right:auto;
+	width: 5%;
+}
+#content img {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+	width: 17%;
+}
+.heading h1{
+
+text-align: center;
+}
+#meet h1{
+	text-align: center;
+}
+a{
+	color: black;
+}
+.ribbon  {
+    display: block;
+	margin-left: auto;
+	margin-right:auto;
+	width: 6em;
+	
+}
+.ribbon2  {
+    
+	
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+	width: 5.5em;
+	
+}
+.ribbon3  {
+    
+	
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+	width: 6.4em;
+	
+}
+.ribbon4  {
+    
+	
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+	width: 8.5em;
+	
+}
+.ribbon5  {
+    
+	
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+	width: 11em;
+	
+}
+.ribbon6  {
+    
+	
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+	width: 13em;
+	
+}
+
+
+
+
+  
+.ribbon:hover 
+{ opacity: 1;
+ /*Reflection*/ -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.4)));
+ /*Glow*/ -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); box-shadow: 0px 0px 20px rgba(255,255,255,0.8); }
+.ribbon2:hover { opacity: 1; 
+/*Reflection*/ -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.4)));
+ /*Glow*/ -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); box-shadow: 0px 0px 20px rgba(255,255,255,0.8); }
+.ribbon3:hover { opacity: 1; 
+/*Reflection*/ -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.4)));
+ /*Glow*/ -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); box-shadow: 0px 0px 20px rgba(255,255,255,0.8); }
+ .ribbon4:hover { opacity: 1; 
+/*Reflection*/ -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.4)));
+ /*Glow*/ -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); box-shadow: 0px 0px 20px rgba(255,255,255,0.8); }
+ .ribbon5:hover { opacity: 1; 
+/*Reflection*/ -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.4)));
+ /*Glow*/ -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8); box-shadow: 0px 0px 20px rgba(255,255,255,0.8); }
+ body{ font-family: Helvetica, Arial, sans-serif; background-image:url(http://www.dminorthinc.com/images/bgs/grayback.jpg); color: #fff; padding:20px; }
+.menu{ width:auto; height:auto; }
+.row{ width:auto; padding:5px; height:auto; display:table; }
+.tile{ height:100px; width:100px; float:left; margin:5px; padding:40px; } 
+.tileLarge{ width:200px; }
+.gold{ background:#DAA520; } .red{ background:#CD0000; } .blue{ background:#4682B4; } .green{ background-color: green; }
+@media only screen and (max-width: 800px) {
+	#head img{width:70%}
+	.tile{width:28%}
+	#exit{width:120%}
+	#content img{width:31%;
+	margin-bottom:5px;}
+	
+}
+
+@media only screen and (max-width: 600px) {
+	#head img{width:90%}
+	.tile{ width:100%}
+	#exit{width:210%}
+	#content img{width:32%;
+	margin-bottom:10px;
+	}
+}
+
+Read more: http://mrbool.com/creating-a-metro-style-menu-in-html-and-css/26266#ixzz3QUX5jwWb 
+
+Read more: http://mrbool.com/creating-a-metro-style-menu-in-html-and-css/26266#ixzz3QUWe6ohZ
+Read more: http://mrbool.com/creating-a-metro-style-menu-in-html-and-css/26266#ixzz3QUVahs3c
